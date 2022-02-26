@@ -16,8 +16,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using DatingApp.API.Helpers;
 using DatingApp.API.Middleware;
+using DatingApp.API.Interfaces;
+using AutoMapper;
+using DatingApp.API.Helpers;
 
 namespace DatingApp.API
 {
@@ -37,11 +39,13 @@ namespace DatingApp.API
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddCors();
             services.AddScoped<IAuthRepository,AuthRepository>();
+            services.AddScoped<IUserRepository,UserRepository>();
+            services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
                 options=>{
                     options.TokenValidationParameters=new TokenValidationParameters(){
                         ValidateIssuerSigningKey=true,
-                        IssuerSigningKey=new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration.GetSection("AppSettings:Token").Value)),
+                        IssuerSigningKey=new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration.GetSection("Token").Value)),
                         ValidateIssuer=false,
                         ValidateAudience=false
                     };
