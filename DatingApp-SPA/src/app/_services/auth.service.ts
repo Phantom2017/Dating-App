@@ -1,20 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, ReplaySubject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { User } from '../_models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-baseUrl='http://localhost:5000/api/auth/';
+baseUrl=environment.apiUrl;
 private currentUserSource=new ReplaySubject<User>(1);
 currentUser$=this.currentUserSource.asObservable();
 
 constructor(private http:HttpClient) { }
 
 login(model:any){
-  return this.http.post<User>(this.baseUrl+'login',model)
+  return this.http.post<User>(this.baseUrl+'auth/login',model)
   .pipe(
     map((response:User)=>{
       const user=response;
@@ -32,7 +33,7 @@ setCurrentUser(user:User){
 }
 
 register(model:any){
-  return this.http.post<User>(this.baseUrl+'register',model).pipe(
+  return this.http.post<User>(this.baseUrl+'auth/register',model).pipe(
     map((user:User)=>{
       if (user) {
         localStorage.setItem('user',JSON.stringify(user));
