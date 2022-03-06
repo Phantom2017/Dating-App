@@ -1,5 +1,6 @@
 using System;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,7 +58,8 @@ namespace DatingApp.API.Controllers
 
             return new UserDto {
                 Username=userFromRepo.Username,
-                Token=CreateToken(userFromRepo)
+                Token=CreateToken(userFromRepo),
+                PhotoUrl=userFromRepo.Photos.FirstOrDefault(u=>u.IsMain)?.Url
             };
         }
 
