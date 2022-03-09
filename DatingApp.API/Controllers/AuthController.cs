@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using DatingApp.API.Data;
 using DatingApp.API.Dtos;
 using DatingApp.API.Models;
@@ -19,8 +20,10 @@ namespace DatingApp.API.Controllers
     {
         private readonly IAuthRepository _repo;
         private readonly IConfiguration _config;
-        public AuthController(IAuthRepository repo, IConfiguration config)
+        private readonly IMapper _mapper;
+        public AuthController(IAuthRepository repo, IConfiguration config, IMapper mapper)
         {
+            _mapper = mapper;
             _config = config;
             _repo = repo;
         }
@@ -32,56 +35,57 @@ namespace DatingApp.API.Controllers
             if (await _repo.UserExists(userForRegisterDto.Username))
                 return BadRequest("User already exists!");
 
-            var userToCreate = new User
-            {
-                Username = userForRegisterDto.Username
-            };
+            var userToCreate = _mapper.Map<User>(userForRegisterDto);
 
             var createdUser = await _repo.Register(userToCreate, userForRegisterDto.Password);
-            
-            return new UserDto {
-                Username=createdUser.Username,
-                Token=CreateToken(createdUser)
+
+            return new UserDto
+            {
+                Username = createdUser.Username,
+                Token = CreateToken(createdUser),
+                KnownAs=createdUser.KnownAs
             };
         }
 
         [HttpPost("login")]
         public async Task<ActionResult<UserDto>> Login(UserForLoginDto userForLoginDto)
-        {
-            //throw new Exception("Server says no");
+        {            
             var userFromRepo = await _repo.Login(userForLoginDto.Username.ToLower(), userForLoginDto.Password);
 
             if (userFromRepo == null)
                 return Unauthorized("Invalid username");
 
-            
 
-            return new UserDto {
-                Username=userFromRepo.Username,
-                Token=CreateToken(userFromRepo),
-                PhotoUrl=userFromRepo.Photos.FirstOrDefault(u=>u.IsMain)?.Url
+
+            return new UserDto
+            {
+                Username = userFromRepo.Username,
+                Token = CreateToken(userFromRepo),
+                PhotoUrl = userFromRepo.Photos.FirstOrDefault(u => u.IsMain)?.Url,
+                KnownAs=userFromRepo.KnownAs
             };
         }
 
-        public string CreateToken(User user){
-            
+        public string CreateToken(User user)
+        {
+
             var claims = new Claim[]
             {
-                new Claim(JwtRegisteredClaimNames.NameId,user.Username)                
+                new Claim(JwtRegisteredClaimNames.NameId,user.Username)
             };
 
-            var key=new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("Token").Value));
-            var creds=new SigningCredentials(key,SecurityAlgorithms.HmacSha512Signature);
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("Token").Value));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
-            var tokenDescriptor=new SecurityTokenDescriptor
+            var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject=new ClaimsIdentity(claims),
-                SigningCredentials=creds,
-                Expires=DateTime.Now.AddDays(1)
+                Subject = new ClaimsIdentity(claims),
+                SigningCredentials = creds,
+                Expires = DateTime.Now.AddDays(1)
             };
 
-            var tokenHandler=new JwtSecurityTokenHandler();
-            var token=tokenHandler.CreateToken(tokenDescriptor);
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var token = tokenHandler.CreateToken(tokenDescriptor);
 
             return tokenHandler.WriteToken(token);
         }

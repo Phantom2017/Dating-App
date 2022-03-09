@@ -4,6 +4,7 @@
 @import '../node_modules/font-awesome/css/font-awesome.min.css';
 @import '../node_modules/ngx-toastr/toastr.css';
 @import '../node_modules/ngx-spinner/animations/line-scale-party.css';
+@import '../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css';
 
 .tab-panel {
     border: 1px solid #ddd;
