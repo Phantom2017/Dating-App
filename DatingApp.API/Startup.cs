@@ -34,6 +34,7 @@ namespace DatingApp.API
             services.AddCors();
             services.AddScoped<IPhotoService,PhotoService>();
             services.AddScoped<IAuthRepository,AuthRepository>();
+            services.AddScoped<LogUserActivity>();
             services.AddScoped<IUserRepository,UserRepository>();
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(

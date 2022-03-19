@@ -14,9 +14,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace DatingApp.API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class AuthController : ControllerBase
+    public class AuthController : BaseApiController
     {
         private readonly IAuthRepository _repo;
         private readonly IConfiguration _config;
@@ -43,7 +41,8 @@ namespace DatingApp.API.Controllers
             {
                 Username = createdUser.Username,
                 Token = CreateToken(createdUser),
-                KnownAs=createdUser.KnownAs
+                KnownAs=createdUser.KnownAs,
+                Gender=createdUser.Gender
             };
         }
 
@@ -62,7 +61,8 @@ namespace DatingApp.API.Controllers
                 Username = userFromRepo.Username,
                 Token = CreateToken(userFromRepo),
                 PhotoUrl = userFromRepo.Photos.FirstOrDefault(u => u.IsMain)?.Url,
-                KnownAs=userFromRepo.KnownAs
+                KnownAs=userFromRepo.KnownAs,
+                Gender=userFromRepo.Gender
             };
         }
 
@@ -71,7 +71,8 @@ namespace DatingApp.API.Controllers
 
             var claims = new Claim[]
             {
-                new Claim(JwtRegisteredClaimNames.NameId,user.Username)
+                new Claim(JwtRegisteredClaimNames.NameId,user.Id.ToString()),
+                new Claim(JwtRegisteredClaimNames.UniqueName,user.Username)
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("Token").Value));

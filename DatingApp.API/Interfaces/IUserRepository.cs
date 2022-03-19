@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using DatingApp.API.Dtos;
+using DatingApp.API.Helpers;
 using DatingApp.API.Models;
 
 namespace DatingApp.API.Interfaces
@@ -13,7 +14,7 @@ namespace DatingApp.API.Interfaces
         void Update(User user);
         Task<IEnumerable<User>> GetUsersAsync();
 
-        Task<IEnumerable<MemberDto>> GetMembersAsync();
+        Task<PagedList<MemberDto>> GetMembersAsync(UserParams userParams);
         Task<MemberDto> GetMemberAsync(string username);
     }    
 }

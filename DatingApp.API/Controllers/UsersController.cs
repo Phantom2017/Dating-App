@@ -6,6 +6,7 @@ using AutoMapper;
 using DatingApp.API.Data;
 using DatingApp.API.Dtos;
 using DatingApp.API.Extensions;
+using DatingApp.API.Helpers;
 using DatingApp.API.Interfaces;
 using DatingApp.API.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -15,10 +16,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DatingApp.API.Controllers
 {
-    [Authorize]
-    [Route("api/[controller]")]
-    [ApiController]
-    public class UsersController : ControllerBase
+    [Authorize]    
+    public class UsersController : BaseApiController
     {
         private readonly IUserRepository userRepository;
         private readonly IMapper mapper;
@@ -31,10 +30,17 @@ namespace DatingApp.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers([FromQuery]UserParams userParams)
         {
-            var members = await userRepository.GetMembersAsync();
+            var user=await userRepository.GetUserByUsernameAsync(User.GetUsername());
+            userParams.CurrentUsername=user.Username;
+            if(string.IsNullOrEmpty(userParams.Gender))
+                userParams.Gender=user.Gender == "male"?"female":"male";
 
+            var members = await userRepository.GetMembersAsync(userParams);
+
+            Response.AddPaginationHeader(members.CurrentPage,members.PageSize
+            ,members.TotalCount,members.TotalPages);
             return Ok(members);
         }
 
