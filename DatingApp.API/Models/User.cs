@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using API.Extensions;
 
 namespace DatingApp.API.Models
@@ -21,10 +22,10 @@ namespace DatingApp.API.Models
         public string City { get; set; }
         public string Country { get; set; }
         public ICollection<Photo> Photos { get; set; }
-
-       // public int GetAge() =>  DateOfBirth.CalculateAge();       
-            
         
+        public ICollection<UserLike> LikedUsers { get; set; }
+            
+        public ICollection<UserLike> LikedByUsers { get; set; }
     }
 
 }
