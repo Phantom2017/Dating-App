@@ -26,6 +26,11 @@ namespace DatingApp.API.Models
         public ICollection<UserLike> LikedUsers { get; set; }
             
         public ICollection<UserLike> LikedByUsers { get; set; }
+        [InverseProperty("Sender")]
+        public ICollection<Message> MessagesSent { get; set; }
+
+        [InverseProperty("Recipient")]
+        public ICollection<Message> MessagesReceived { get; set; }
     }
 
 }
