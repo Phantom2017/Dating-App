@@ -2,35 +2,35 @@
     <h2>Your matches - {{pagination?.totalItems}} found</h2>
 </div>
 <div class="container mt-3">
-    <form #form="ngForm" class="form-inline mb-3" (ngSubmit)="loadMembers()" autocomplete="off">
-        <div class="form-group">
-            <label>Age from: </label>
+    <form #form="ngForm" class="d-flex mb-3" (ngSubmit)="loadMembers()" autocomplete="off">
+        <div class="d-flex mx-2">
+            <label class="col-form-label me-2">Age from: </label>
             <input type="number" name="minAge" class="form-control ml-1" style="width: 70px;" 
             [(ngModel)]="userParams.minAge">            
         </div>
-        <div class="form-group px-2">
-            <label>Age to: </label>
+        <div class="d-flex px-2">
+            <label class="col-form-label me-2">Age to: </label>
             <input type="number" name="maxAge" class="form-control ml-1" style="width: 70px;" [(ngModel)]="userParams.maxAge">            
         </div>
-        <div class="form-group px-2">
-            <label>Show: </label>
+        <div class="d-flex px-2">
+            <label class="col-form-label me-2">Show: </label>
             <select name="gender" class="form-control ml-1" style="width: 130px;" [(ngModel)]="userParams.gender">
                 <option *ngFor="let g of genderList" [value]="g.value">
                     {{g.display}}
                 </option>
             </select>
         </div>
-        <button type="submit" class="btn btn-success ml-1">Apply Filters</button>
-        <button (click)="resetFilters()" type="submit" class="btn btn-info ml-1">Reset Filters</button>
+        <button type="submit" class="btn btn-success ms-1">Apply Filters</button>
+        <button (click)="resetFilters()" type="submit" class="btn btn-info ms-1">Reset Filters</button>
         <div class="col">
-            <div class="button-group float-right">
+            <div class="button-group float-end">
                 <button class="btn btn-primary" name="orderBy"
                     type="button"
                     [(ngModel)]="userParams.orderBy"
                     (click)="loadMembers()"
                     btnRadio="lastActive"
                 >Last Active</button>
-                <button class="btn btn-primary" name="orderBy"
+                <button class="btn btn-primary ms-1" name="orderBy"
                     type="button"
                     [(ngModel)]="userParams.orderBy"
                     (click)="loadMembers()"

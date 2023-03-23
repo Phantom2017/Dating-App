@@ -1,0 +1,73 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\masmi\\DatingApp\\DatingApp-API\\wwwroot\\3rdpartylicenses.txt",
+      "PackagePath": "staticwebassets\\3rdpartylicenses.txt"
+    },
+    {
+      "Id": "C:\\Users\\masmi\\DatingApp\\DatingApp-API\\wwwroot\\assets\\user.png",
+      "PackagePath": "staticwebassets\\assets\\user.png"
+    },
+    {
+      "Id": "C:\\Users\\masmi\\DatingApp\\DatingApp-API\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\masmi\\DatingApp\\DatingApp-API\\wwwroot\\fontawesome-webfont.2b13baa7dd4f54c9.eot",
+      "PackagePath": "staticwebassets\\fontawesome-webfont.2b13baa7dd4f54c9.eot"
+    },
+    {
+      "Id": "C:\\Users\\masmi\\DatingApp\\DatingApp-API\\wwwroot\\fontawesome-webfont.8a7cb27d142e3e19.ttf",
+      "PackagePath": "staticwebassets\\fontawesome-webfont.8a7cb27d142e3e19.ttf"
+    },
+    {
+      "Id": "C:\\Users\\masmi\\DatingApp\\DatingApp-API\\wwwroot\\fontawesome-webfont.cf011583fb81df9f.woff",
+      "PackagePath": "staticwebassets\\fontawesome-webfont.cf011583fb81df9f.woff"
+    },
+    {
+      "Id": "C:\\Users\\masmi\\DatingApp\\DatingApp-API\\wwwroot\\fontawesome-webfont.da909aa098b0ee2d.svg",
+      "PackagePath": "staticwebassets\\fontawesome-webfont.da909aa098b0ee2d.svg"
+    },
+    {
+      "Id": "C:\\Users\\masmi\\DatingApp\\DatingApp-API\\wwwroot\\fontawesome-webfont.e9955780856cf8aa.woff2",
+      "PackagePath": "staticwebassets\\fontawesome-webfont.e9955780856cf8aa.woff2"
+    },
+    {
+      "Id": "C:\\Users\\masmi\\DatingApp\\DatingApp-API\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\masmi\\DatingApp\\DatingApp-API\\wwwroot\\main.29dba0c002258b02.js",
+      "PackagePath": "staticwebassets\\main.29dba0c002258b02.js"
+    },
+    {
+      "Id": "C:\\Users\\masmi\\DatingApp\\DatingApp-API\\wwwroot\\polyfills.32a04959a908f540.js",
+      "PackagePath": "staticwebassets\\polyfills.32a04959a908f540.js"
+    },
+    {
+      "Id": "C:\\Users\\masmi\\DatingApp\\DatingApp-API\\wwwroot\\runtime.be7cf9e34e31c862.js",
+      "PackagePath": "staticwebassets\\runtime.be7cf9e34e31c862.js"
+    },
+    {
+      "Id": "C:\\Users\\masmi\\DatingApp\\DatingApp-API\\wwwroot\\styles.c3add720bbbaf2d6.css",
+      "PackagePath": "staticwebassets\\styles.c3add720bbbaf2d6.css"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.API.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.API.props",
+      "PackagePath": "build\\API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.API.props",
+      "PackagePath": "buildMultiTargeting\\API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.API.props",
+      "PackagePath": "buildTransitive\\API.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

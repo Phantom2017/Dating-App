@@ -66,7 +66,6 @@ C:\Users\masmi\DatingApp\DatingApp-API\bin\Debug\net5.0\API.deps.json
 C:\Users\masmi\DatingApp\DatingApp-API\bin\Debug\net5.0\API.runtimeconfig.json
 C:\Users\masmi\DatingApp\DatingApp-API\bin\Debug\net5.0\API.runtimeconfig.dev.json
 C:\Users\masmi\DatingApp\DatingApp-API\bin\Debug\net5.0\API.dll
-C:\Users\masmi\DatingApp\DatingApp-API\bin\Debug\net5.0\ref\API.dll
 C:\Users\masmi\DatingApp\DatingApp-API\bin\Debug\net5.0\API.pdb
 C:\Users\masmi\DatingApp\DatingApp-API\bin\Debug\net5.0\AutoMapper.dll
 C:\Users\masmi\DatingApp\DatingApp-API\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
@@ -112,7 +111,6 @@ C:\Users\masmi\DatingApp\DatingApp-API\obj\Debug\net5.0\API.AssemblyInfo.cs
 C:\Users\masmi\DatingApp\DatingApp-API\obj\Debug\net5.0\API.csproj.CoreCompileInputs.cache
 C:\Users\masmi\DatingApp\DatingApp-API\obj\Debug\net5.0\API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\masmi\DatingApp\DatingApp-API\obj\Debug\net5.0\staticwebassets\API.StaticWebAssets.Manifest.cache
-C:\Users\masmi\DatingApp\DatingApp-API\obj\Debug\net5.0\staticwebassets\API.StaticWebAssets.xml
 C:\Users\masmi\DatingApp\DatingApp-API\obj\Debug\net5.0\scopedcss\bundle\API.styles.css
 C:\Users\masmi\DatingApp\DatingApp-API\obj\Debug\net5.0\API.RazorTargetAssemblyInfo.cache
 C:\Users\masmi\DatingApp\DatingApp-API\obj\Debug\net5.0\API.csproj.CopyComplete
@@ -121,3 +119,10 @@ C:\Users\masmi\DatingApp\DatingApp-API\obj\Debug\net5.0\ref\API.dll
 C:\Users\masmi\DatingApp\DatingApp-API\obj\Debug\net5.0\API.pdb
 C:\Users\masmi\DatingApp\DatingApp-API\obj\Debug\net5.0\API.genruntimeconfig.cache
 C:\Users\masmi\DatingApp\DatingApp-API\bin\Debug\net5.0\appsettings.json
+C:\Users\masmi\DatingApp\DatingApp-API\obj\Debug\net5.0\staticwebassets\API.StaticWebAssets.Pack.cache
+C:\Users\masmi\DatingApp\DatingApp-API\obj\Debug\net5.0\staticwebassets\msbuild.API.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\masmi\DatingApp\DatingApp-API\obj\Debug\net5.0\staticwebassets\msbuild.build.API.props
+C:\Users\masmi\DatingApp\DatingApp-API\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.API.props
+C:\Users\masmi\DatingApp\DatingApp-API\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.API.props
+C:\Users\masmi\DatingApp\DatingApp-API\obj\Debug\net5.0\refint\API.dll
+C:\Users\masmi\DatingApp\DatingApp-API\bin\Debug\net5.0\omnisharp.json
